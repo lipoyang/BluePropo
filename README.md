@@ -2,8 +2,13 @@ BluePropo
 =========
 
 ## 概要
-BluetoothのSPPを使ったAndroid用ラジコンプロポアプリ、およびArduino用スケッチです。  
-(工事中)
+Bluetoothを使ったAndroid用ラジコンプロポアプリ、およびArduino用スケッチです。  
+![概念図](http://licheng.sakura.ne.jp/steer/overview2.png)
+Androidアプリは、下図のようなUIです。
+![概念図](http://licheng.sakura.ne.jp/steer/UI_small.png)
+ラジコンは、Arduino(互換ボード)やBluetoothモジュールなどを組み合わせて作ります。
+下図はミニ四駆を改造して作ったラジコンです。
+![概念図](http://licheng.sakura.ne.jp/steer/photo2.jpg)
 
 ## 動作環境
 ### システム要件
