@@ -3,7 +3,7 @@ BluePropo
 
 ## 概要
 BluetoothのSPPを使ったAndroid用ラジコンプロポアプリ、およびArduino用スケッチです。  
-TODO　イラスト、写真
+\TODO
 
 ## 動作環境
 ### システム要件
@@ -30,5 +30,8 @@ TODO　イラスト、写真
 * README.md これ
 
 ## 使い方
-TODO
+### Androidアプリのインストール
+### Arduinoスケッチのインストール
+### ハードウェア構成(例)
+### アプリの操作
 
