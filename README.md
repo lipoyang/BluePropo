@@ -8,11 +8,11 @@ TODO　イラスト、写真
 ## 動作環境
 ### システム要件
 * Android端末: Android 2.2 (API Level 8)以上で、BluetoothでSPPが使用可能な機種
-* マイコン: GR-KURUMI (Arduino Pro Mini 互換ボード, ルネサスRL78/G13マイコン) ※1  
+* マイコン: GR-KURUMI (Arduino Pro Mini 互換ボード, ルネサスRL78/G13マイコン) ※1
 * Bluetoothモジュール: 3.3VのUART I/F (RxD,TxDのみ使用)を持つBluetoothシリアルモジュール ※2
 * DCモータードライバ: テキサスインスツルメンツ DRV8830
 
-※1 基本的にArduino とスケッチ互換なので、ヘッダの#includeを変更すればArduinoでも動作するはず。
+※1 基本的にArduino とスケッチ互換なので、ヘッダの#includeを変更すればArduinoでも動作するはず。  
 ※2 スレーブモード・19200 baudで動作するようあらかじめ設定可能であること。
 
 ### 確認済み環境
