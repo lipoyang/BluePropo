@@ -8,7 +8,7 @@ Bluetoothを使ったAndroid用ラジコンプロポアプリ、およびArduino
 
 Androidアプリは、下図のようなUIです。
 
-![アプリの画面](http://licheng.sakura.ne.jp/steer/UI_small.png)
+![アプリの画面](http://licheng.sakura.ne.jp/steer/ui_small.png)
 
 ラジコンは、Arduino(互換ボード)やBluetoothモジュールなどを組み合わせて作ります。
 下図はミニ四駆を改造して作ったラジコンです。
