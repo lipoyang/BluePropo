@@ -20,35 +20,38 @@ package net.lipoyang.bluepropo;
 import android.content.Context;
 import android.graphics.*;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.SparseArray;
+import android.view.Display;
 import android.view.View;
+import android.view.WindowManager;
 import android.content.res.Resources;
 import android.view.MotionEvent;
 
 public class PropoView extends View {
-	// screen size
+	// screen size of the original design
 	private final float W_SCREEN = 1184;
-//	private final float H_SCREEN = 720;
+	private final float H_SCREEN = 720;
 	// Bluetooth button size
-	private final float W_BT_BUTTON = 240;
-	private final float H_BT_BUTTON = 106;
+	private float W_BT_BUTTON = 240;
+	private float H_BT_BUTTON = 106;
 	// Bluetooth button base point (left-top) 
-	private final float X_BT_BUTTON = W_SCREEN/2 - W_BT_BUTTON/2;
-	private final float Y_BT_BUTTON = 54;
+	private float X_BT_BUTTON = W_SCREEN/2 - W_BT_BUTTON/2;
+	private float Y_BT_BUTTON = 54;
 	// F<->B bar radius and length of movement (half)
-	private final float R_FB_BAR = 42;
-	private final float L_FB_BAR = 173; //(range/2 - radius/2)
+	private float R_FB_BAR = 42;
+	private float L_FB_BAR = 173; //(range/2 - radius/2)
 	// F<->B bar neutral point
-	private final float X_FB_BAR = 299;//296
-	private final float Y_FB_BAR = 377;
+	private float X_FB_BAR = 299;//296
+	private float Y_FB_BAR = 377;
 	// L<->R bar radius and length of movement (half)
-	private final float R_LR_BAR = 42;
-	private final float L_LR_BAR = 173; //(range/2 - radius/2)
+	private float R_LR_BAR = 42;
+	private float L_LR_BAR = 173; //(range/2 - radius/2)
 	// L<->R bar neutral point
-	private final float X_LR_BAR = 897;//888
-	private final float Y_LR_BAR = 377;
+	private float X_LR_BAR = 897;//888
+	private float Y_LR_BAR = 377;
 	// margin of bar touch range
-	private final float MARGIN_BAR = 50;
+	private float MARGIN_BAR = 50;
 	
 	// touch points
 	// -- SparseArray is faster than HashMap.
@@ -61,8 +64,8 @@ public class PropoView extends View {
     public int btID = -1;	// touch on Bluetooth button
     
     // position of F<->B bar, L<->R bar
-    private float fb_y = Y_FB_BAR;
-    private float lr_x = X_LR_BAR;
+    private float fb_y;
+    private float lr_x;
 
     // Bluetooth state
     private int btState = MainActivity.STATE_DISCONNECTED;
@@ -95,6 +98,41 @@ public class PropoView extends View {
 	// set main activity
 	public void setMainActivity(MainActivity ma) {
 		mainActivity = ma;
+		
+		// get screen information
+		WindowManager wm = (WindowManager)ma.getBaseContext().getSystemService(Context.WINDOW_SERVICE);
+		Display display = wm.getDefaultDisplay();
+		DisplayMetrics displayMetrics = new DisplayMetrics();
+		display.getMetrics(displayMetrics);
+		
+		// scale factor
+		float xScale = displayMetrics.widthPixels / W_SCREEN;
+		float yScale = displayMetrics.heightPixels / H_SCREEN;
+
+		// Bluetooth button size
+		W_BT_BUTTON = imgDisconnected.getWidth();
+		H_BT_BUTTON = imgDisconnected.getHeight();
+		// Bluetooth button base point (left-top) 
+		X_BT_BUTTON = displayMetrics.widthPixels/2 - W_BT_BUTTON/2;
+		Y_BT_BUTTON = 54 * yScale;
+		// F<->B bar radius and length of movement (half)
+		R_FB_BAR = 42 * xScale;
+		L_FB_BAR = 173 * yScale; //(range/2 - radius/2)
+		// F<->B bar neutral point
+		X_FB_BAR = 296 * xScale;
+		Y_FB_BAR = 377 * yScale;
+		// L<->R bar radius and length of movement (half)
+		R_LR_BAR = 42 * yScale;
+		L_LR_BAR = 173 * xScale; //(range/2 - radius/2)
+		// L<->R bar neutral point
+		X_LR_BAR = 888 * xScale;
+		Y_LR_BAR = 377 * yScale;
+		// margin of bar touch range
+		MARGIN_BAR = 50 * xScale;
+		
+		// initial position of sticks
+	    fb_y = Y_FB_BAR;
+	    lr_x = X_LR_BAR;
 	}
 	
 	// set Bluetooth State
