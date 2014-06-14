@@ -40,9 +40,20 @@ Androidアプリは、下図のようなUIです。
 * README.md これ
 
 ## 使い方
-(工事中)
-### Androidアプリのインストール
-### Arduinoスケッチのインストール
-### ハードウェア構成(例)
-### アプリの操作
 
+### Androidアプリのインストール
+* BlueSerialとBluePropoのプロジェクトフォルダをADTにインポートします。
+* BluePropoをADTからAndroid端末にインストールして実行します。
+
+### Arduinoスケッチのインストール
+* MiniSteerのプロジェクトフォルダをArduino IDEで開きます。
+* GR-KURUMIの場合は、Arduino IDEベースのIDE for GRの使用を推奨します。
+* コンパイルしてターゲットのボードに書き込みます。
+
+### ハードウェア(例)
+![実体配線図](http://licheng.sakura.ne.jp/steer/wiring.png)
+
+### アプリの操作
+* Bluetoothロゴのボタンを押すと、接続するデバイスを選択する画面になります。
+* ボタンの色は橙が未接続、黄が接続中、青が接続済を示します。
+* 見てのとおり、ラジコンプロポの要領で2本のスティックを操作します。
