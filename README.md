@@ -25,7 +25,8 @@ Androidアプリは、下図のようなUIです。
 ※ スレーブモード・19200 baudで動作するようあらかじめ設定可能であること。
 
 ### 確認済み環境
-* Android端末: Galaxy Nexus, Android 4.2.2, xdpi 1280×720 pixel
+* Android端末(1): Galaxy Nexus, Android 4.2.2, xdpi 1280×720 pixel
+* Android端末(2): Xperia Pro, Android 2.3.4, hdpi 854×480 pixel
 * マイコン: GR-KURUMI (Arduino Pro Mini 互換ボード, ルネサスRL78/G13マイコン) 
 * Bluetoothモジュール: 浅草ギ研 BlueMaster
 * DCモータードライバ: ストロベリーリナックス DRV8830 I2Cモータードライバ・モジュール
