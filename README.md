@@ -19,7 +19,7 @@ Androidアプリは、下図のようなUIです。
 ### システム要件
 * Android端末: Android 2.2 (API Level 8)以上で、BluetoothでSPPが使用可能な機種
 * マイコン: Arduino またはスケッチ互換のボード
-* Bluetoothモジュール: 3.3VのUART I/F (RxD,TxDのみ使用)を持つBluetoothシリアルモジュール ※
+* Bluetoothモジュール: UART I/F (RxD,TxDのみ使用)を持つBluetoothシリアルモジュール ※
 * DCモータードライバ: テキサスインスツルメンツ DRV8830
 
 ※ スレーブモード・19200 baudで動作するようあらかじめ設定可能であること。
