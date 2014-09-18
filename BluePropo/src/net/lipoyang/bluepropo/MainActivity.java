@@ -89,11 +89,11 @@ public class MainActivity extends Activity  implements BlueSerialListener{
 
     @Override
     public void onDestroy() {
+        // stop the BlueSerial.
+    	blueSerial.stop();
+        
         super.onDestroy();
         if(DEBUGGING) Log.e(TAG, "--- ON DESTROY ---");
-        
-        // stop the BlueSerial.
-        blueSerial.stop();
     }
 
     // onConneting, onConneted, onDisconneted  of BlueSerialLinster
@@ -146,11 +146,11 @@ public class MainActivity extends Activity  implements BlueSerialListener{
     		dir = 0x00;
     		volt = 0x00;
     	}else if(fb > 0.0){
-    		dir = 0x02;
-    		volt = (int)(fb * 40.0F);
-    	}else{
     		dir = 0x01;
-    		volt = (int)(-fb * 40.0F);
+    		volt = (int)(fb * 60.0F);
+    	}else{
+    		dir = 0x02;
+    		volt = (int)(-fb * 60.0F);
     	}
     	int data = (volt << 2) | dir;
     	String command = "#D" +String.format("%02X", data) + "$";
@@ -164,7 +164,9 @@ public class MainActivity extends Activity  implements BlueSerialListener{
     public void onTouchLrStick(float lr)
     {
     	// send "#Bxxx$" where xxx = 000 ... 180 (decimal[degree])
-    	int degree = (int)(lr * 90.0F) + 90;
+    	int degree = (int)(-lr * 90.0F) + 90;
+		if (degree > 180) degree = 180;
+		if (degree < 0) degree = 0;
     	String command = "#B" +String.format("%03d", degree) + "$";
 
     	// send the BlueSerial a message.

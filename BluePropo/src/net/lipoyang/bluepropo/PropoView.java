@@ -108,7 +108,21 @@ public class PropoView extends View {
 		// scale factor
 		float xScale = displayMetrics.widthPixels / W_SCREEN;
 		float yScale = displayMetrics.heightPixels / H_SCREEN;
-
+		
+		// resize bitmap images
+		Bitmap img1 = imgDisconnected;
+		Bitmap img2 = imgConnecting;
+		Bitmap img3 = imgConnected;
+		Bitmap img4 = imgBar;
+		Matrix matrix = new Matrix();
+		float rsz_ratio_w = 84.0f / img4.getWidth()  * xScale;
+		float rsz_ratio_h = 84.0f / img4.getHeight() * yScale;
+		matrix.postScale( rsz_ratio_w, rsz_ratio_h );
+		imgDisconnected = Bitmap.createBitmap(img1, 0, 0, img1.getWidth(), img1.getHeight(), matrix, true);
+		imgConnecting   = Bitmap.createBitmap(img2, 0, 0, img2.getWidth(), img2.getHeight(), matrix, true);
+		imgConnected    = Bitmap.createBitmap(img3, 0, 0, img3.getWidth(), img3.getHeight(), matrix, true);
+		imgBar          = Bitmap.createBitmap(img4, 0, 0, img4.getWidth(), img4.getHeight(), matrix, true);
+		
 		// Bluetooth button size
 		W_BT_BUTTON = imgDisconnected.getWidth();
 		H_BT_BUTTON = imgDisconnected.getHeight();
