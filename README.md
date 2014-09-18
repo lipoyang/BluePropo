@@ -4,16 +4,16 @@ BluePropo
 ## 概要
 Bluetoothを使ったAndroid用ラジコンプロポアプリ、およびArduino用スケッチです。
 
-![概念図](http://licheng.sakura.ne.jp/steer/overview2.png)
+![概念図](image/overview.png)
 
 Androidアプリは、下図のようなUIです。
 
-![アプリの画面](http://licheng.sakura.ne.jp/steer/UI_small.png)
+![アプリの画面](image/UI_small.png)
 
 ラジコンは、Arduino(互換ボード)やBluetoothモジュールなどを組み合わせて作ります。
 下図はミニ四駆を改造して作ったラジコンです。
 
-![ラジコンの写真](http://licheng.sakura.ne.jp/steer/photo2.jpg)
+![ラジコンの写真](image/photo.jpg)
 
 ## 動作環境
 ### システム要件
@@ -51,7 +51,7 @@ Androidアプリは、下図のようなUIです。
 * コンパイルしてターゲットのボードに書き込みます。
 
 ### ハードウェア(例)
-![実体配線図](http://licheng.sakura.ne.jp/steer/wiring.png)
+![実体配線図](image/wiring.png)
 
 ### アプリの操作
 * Bluetoothロゴのボタンを押すと、接続するデバイスを選択する画面になります。
